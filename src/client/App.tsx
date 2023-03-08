@@ -5,23 +5,11 @@ const MIN_DETECTION_CONFIDENCE = 0.6;
 const RATIO_X = 1;
 const RATIO_Y = 1.3;
 
-// https://stackoverflow.com/questions/4429440/html5-display-video-inside-canvas
-// https://explore.org/livecams/africam/flamingo-cam
-// https://github.com/google/making_with_ml/blob/master/petcam/admin/public/camera.js
-// https://daleonai.com/ai-pet-cam
-
 const AppBase: React.FC = () => {
-  // const canvasRef = useRef<HTMLCanvasElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const initialize = useCallback(async () => {
-    // const canvas = canvasRef.current as HTMLCanvasElement;
-    // const ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
     const video = videoRef.current as HTMLVideoElement;
-
-    // const div = videoRef.current?.parentNode as HTMLDivElement;
-    // div.style.height = `${video.height}px`;
-
     video.addEventListener("play", async () => {
       const loop = async () => {
         if (!video.paused && !video.ended) {
@@ -77,11 +65,10 @@ const AppBase: React.FC = () => {
         <video
           ref={videoRef}
           crossOrigin="anonymous"
-          src="/sheep.mov"
+          src="/cow.mov"
           controls
           width="100%"
         ></video>
-        {/* <canvas ref={canvasRef}></canvas> */}
       </div>
     </div>
   );
