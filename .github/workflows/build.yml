@@ -11,4 +11,4 @@ jobs:
           persist-credentials: false
           submodules: recursive
       - uses: ./.github/actions
-      - run:  yarn build && yarn build:webassembly
+      - run:  yarn build && yarn build
