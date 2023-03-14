@@ -1,9 +1,9 @@
 import React, { useCallback, useEffect, useRef } from "react";
 
 const highlighters = [] as Array<HTMLDivElement>;
-const MIN_DETECTION_CONFIDENCE = 0.6;
-const RATIO_X = 1;
-const RATIO_Y = 1.3;
+const MIN_DETECTION_CONFIDENCE = 0.3;
+// const RATIO_X = 1.1;
+// const RATIO_Y = 1.2;
 
 const AppBase: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -45,10 +45,10 @@ const AppBase: React.FC = () => {
     const highlighter = document.createElement("div");
     highlighter.style.position = "absolute";
     highlighter.style.border = "solid 2px red";
-    highlighter.style.left = `${prediction.bbox[0] * RATIO_X}px`;
-    highlighter.style.top = `${prediction.bbox[1] * RATIO_Y}px`;
-    highlighter.style.width = `${(prediction.bbox[2] / 2) * RATIO_X}px`;
-    highlighter.style.height = `${(prediction.bbox[3] / 2) * RATIO_Y}px`;
+    highlighter.style.left = `${prediction.bbox[0]}px`;
+    highlighter.style.top = `${prediction.bbox[1]}px`;
+    highlighter.style.width = `${prediction.bbox[2]}px`;
+    highlighter.style.height = `${prediction.bbox[3]}px`;
 
     videoRef.current?.parentNode?.appendChild(highlighter);
     highlighters.push(highlighter);
